@@ -10,4 +10,4 @@ Para poder utiizar la app seguir los siguientes pasos:
 
 3. Ejecutar el comando *npm install* dentro de la carpeta BackenEmpleo.
 
-4. Crear la variable de entorno .env con el nombre MONGODB_URI = "Dirreccion de base de datos" para utilizarla en database.js
+4. Crear la variable de entorno .env con el nombre MONGODB_URI = "Direccion de base de datos" para utilizarla en database.js
