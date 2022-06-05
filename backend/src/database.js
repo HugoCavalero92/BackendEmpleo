@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const URI = process.env.MONGOOSE_URI
     ? process.env.MONGOOSE_URI
-    : 'mongodb://localhost/portaldatabase';
+    : 'mongodb://localhost:27017/portaldatabase';
 
 mongoose.connect(URI, {
     useUnifiedTopology: true,

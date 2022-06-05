@@ -2,6 +2,10 @@ const { Schema, model } = require('mongoose');
 
 const hojaSchema = new Schema(
     {
+        experience: {
+            type: String,
+            
+        },
         username: {
             type: String,
             required: true,

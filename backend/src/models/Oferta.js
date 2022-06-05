@@ -5,7 +5,8 @@ const ofertaSchema = new Schema(
         title: { type: String, required: true},
         description: { type: String, required: true},
         author: { type: String, required: true},
-        date: Date
+        user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
+        date:{type: Date} 
     }, {
         timestamps: true
     });
