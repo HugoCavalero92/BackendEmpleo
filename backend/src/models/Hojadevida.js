@@ -4,14 +4,17 @@ const hojaSchema = new Schema(
     {
         experience: {
             type: String,
-            
         },
-        username: {
+        education: {
             type: String,
-            required: true,
-            unique: true,
-            trim: true
-        }
+        },
+        language: {
+            type: String,
+        },
+        personalInformation: {
+            type: String,
+        },
+        user: {type: Schema.Types.ObjectId, ref: 'User', required: true},
     }, {
         timestamps: true
     });
