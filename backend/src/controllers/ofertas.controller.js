@@ -4,7 +4,7 @@ const Oferta = require('../models/Oferta');
 
 ofertasCtrl.getOfertas = async (req, res) => {
     try{
-        const ofertas = await Oferta.find().populate('user', 'name email');
+        const ofertas = await Oferta.find().populate('author', 'name email');
         res.status(200).json({
             ok: true,
             ofertas
@@ -20,15 +20,15 @@ ofertasCtrl.getOfertas = async (req, res) => {
 };
 
 ofertasCtrl.createOferta = async (req, res) => {
-    const { title, description, date, author, uid } = req.body;
-
+    const { title, description} = req.body;
+    const uid = req.uid;
+    console.log(uid);
     try{
         const newOferta = new Oferta({
             title,
             description,
-            date,
-            author,
-            user: uid
+            date: Date.now(),
+            author: uid,
         });
     
         await newOferta.save();
