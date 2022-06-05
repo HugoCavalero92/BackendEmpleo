@@ -9,10 +9,12 @@ app.set('port', process.env.PORT || 4000);
 // middlewares 
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extends:true}))
 
 // routes
 app.use('/api/ofertas', require('./routes/ofertas'));
 app.use('/api/hojadevida', require('./routes/hojadevida'));
+app.use('/api/usuarios', require('./routes/users'));
+app.use('/api/login', require('./routes/auth'));
+app.use('/api/uploads', require('./routes/uploads'));
 
 module.exports = app;

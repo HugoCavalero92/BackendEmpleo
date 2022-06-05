@@ -5,7 +5,10 @@ const { getOfertas, createOferta, getOferta, deleteOferta, updateOferta } = requ
 
 router.route('/')
     .get(getOfertas)
-    .post(createOferta);
+    .post([
+        
+    ],
+        createOferta);
 
 router.route('/:id')
     .get(getOferta)
