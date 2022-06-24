@@ -24,14 +24,6 @@ const Login: React.FC = () => {
         }
     }
 
-    const responseGoogle = async (response: any) => {
-        console.log(response);
-        const data = await axios.post('http://localhost:3300/users/google', {
-            tokenId: response.tokenId
-        });
-        console.log(data);
-    };
-
     useEffect(() => {
         if(userInfo != null){
             setRedirect(true);
@@ -63,16 +55,7 @@ const Login: React.FC = () => {
             <div className="mb-3">
                 <button className="btn btn-outline-info">Iniciar Sesión</button>
             </div>
-            <div className="mb-3">
-            <GoogleLogin
-                clientId="1084787506928-bs1s1cgppvot3424peajepiojdh3dpm5.apps.googleusercontent.com"
-                jsSrc='https://apis.google.com/js/platform.js'
-                buttonText="Ingresar con cuenta de google"
-                onSuccess={responseGoogle}
-                onFailure={responseGoogle}
-                cookiePolicy={'single_host_origin'}
-            />
-            </div>
+
         </form>
         
     );
