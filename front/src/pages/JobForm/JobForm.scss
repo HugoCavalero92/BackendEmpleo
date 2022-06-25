@@ -1,13 +1,4 @@
-.register-container{
-    display: flex;
-    align-items: center;
-    max-width: 1366px;
-    margin: 0 auto;
 .form-container{
-    flex-basis: 50%;
-    @media screen and (max-width: 992px){
-        flex-basis: 100%;
-    }
     &__title{
         color: #0085c6;
         font-weight: bold;
@@ -29,11 +20,4 @@
             }
         }
     }
-}
-.image-container{
-    flex-basis: 50%;
-    @media screen and (max-width: 992px){
-        display: none;
-    }
-}
 }
