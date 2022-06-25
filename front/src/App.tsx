@@ -7,6 +7,7 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 import Navigation from './components/Navigation/Navigation';
 import { store } from './state/store';
+import JobForm from './pages/JobForm/JobForm';
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <Navigation />
         <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/new-job" element={<JobForm/>}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/register" element={<Register />} />
         </Routes>

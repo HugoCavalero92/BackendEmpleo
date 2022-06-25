@@ -2,15 +2,15 @@ import axios from 'axios';
 import { Dispatch } from 'redux';
 import { UserActionType } from '../../action-types/user/user-action-types';
 import { Action } from '../../actions/user';
+import { errorAlert } from '../../../helpers/generic-message-alerts';
 
 
 export const login = (email: string, password: string) => {
    return async(dispatch: Dispatch<Action>) => {
+        dispatch({
+            type: UserActionType.USER_LOGIN_REQUEST
+        });
         try{
-            dispatch({
-                type: UserActionType.USER_LOGIN_REQUEST
-            });
-
             const config = {
                 headers: {
                     'Content-Type': 'application/json'
@@ -20,7 +20,8 @@ export const login = (email: string, password: string) => {
             const {data} = await axios.post(
                 'http://localhost:3300/api/login', 
                 {email, password}, 
-                config);
+                config
+                );
             dispatch({
                 type: UserActionType.USER_LOGIN_SUCCESS,
                 payload: data
@@ -29,6 +30,8 @@ export const login = (email: string, password: string) => {
             localStorage.setItem('userInfo', JSON.stringify(data));
 
         }catch(error: any){
+            
+            errorAlert(error.response.data.msg || 'Ah ocurrido un problema');
             dispatch({
                 type: UserActionType.USER_LOGIN_FAIL,
                 payload:
@@ -82,6 +85,7 @@ export const register = (name: string, surname: string, email: string, password:
                 ? error.response.data.message
                 : error.message
             });
+            errorAlert(error.response.data.msg || 'Ah ocurrido un problema');
         }
     }
 }

@@ -4,7 +4,7 @@ import reducers from "./reducers";
 
 export interface AppState {
     userLogin?: any,
-    userRegister?: any,
+    jobs?: any,
   };
 
 
@@ -13,6 +13,7 @@ const userInfoFromStorage = !!localStorage.getItem('userInfo')
 
 const initialState = {
     userLogin: {userInfo: userInfoFromStorage, loading: false, error: null},
+    jobs: {job: null, loading: false, error: null}
 };
 
 export const store = createStore(
