@@ -8,6 +8,8 @@ import Register from './pages/Register/Register';
 import Navigation from './components/Navigation/Navigation';
 import { store } from './state/store';
 import JobForm from './pages/JobForm/JobForm';
+import { CVForm } from './pages/CVForm/CVForm';
+import MyCV from './pages/MyCV/MyCV';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +21,8 @@ const App: React.FC = () => {
         <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/new-job" element={<JobForm/>}/>
+            <Route path="/new-cv" element={<CVForm/>}/>
+            <Route path="/my-cv" element={<MyCV/>}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/register" element={<Register />} />
         </Routes>

@@ -23,6 +23,11 @@ const UserSchema = Schema({
         required: true,
         default: 'USER_ROLE'
     },
+    isRecruiter: {
+        type: Boolean,
+        required: true,
+        default: false
+    }
 });
 
 UserSchema.method('toJSON', function() {

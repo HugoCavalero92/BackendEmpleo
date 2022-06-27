@@ -1,49 +1,48 @@
-import { JobActionType } from "../../action-types/jobsposts/jobs-action-types";
-import { JobAction } from "../../actions/jobsposts/jobs-actions";
+import { CVActionType } from "../../action-types/cvposts/cvposts-action-types";
+import { CVAction } from "../../actions/cvposts/cvposts-actions";
 
-
-interface JobState {
+interface CVState {
     loading: boolean;
     error: string | null;
-    job?: any;
+    cv?: any;
 };
 
 const initialState = {
     loading: false,
     error: null,
-    job: []
+    cv: []
 }
 
-export const JobsReducer = (state: JobState = initialState, action: JobAction): JobState => {
+export const CVReducer = (state: CVState = initialState, action: CVAction): CVState => {
     switch (action.type) {
-        case JobActionType.JOB_POST_REQUEST:
+        case CVActionType.CV_POST_REQUEST:
             return {
                 ...state,
                 loading: true,
             };
-        case JobActionType.JOB_POST_SUCCESS:
+        case CVActionType.CV_POST_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                job: [...state?.job, action?.payload],
+                cv: [...state?.cv, action?.payload],
             };
-        case JobActionType.JOB_POST_FAIL:
+        case CVActionType.CV_POST_FAIL:
             return {
                 ...state,
                 error: action.payload
             };
-        case JobActionType.JOB_GET_REQUEST:
+        case CVActionType.CV_GET_REQUEST:
             return {
                 ...state,
                 loading: true
             };
-        case JobActionType.JOB_GET_SUCCESS:
+            case CVActionType.CV_GET_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                job: action?.payload
+                cv: action?.payload
             };
-        case JobActionType.JOB_GET_FAIL:
+            case CVActionType.CV_GET_FAIL:
             return {
                 ...state,
                 loading: false,

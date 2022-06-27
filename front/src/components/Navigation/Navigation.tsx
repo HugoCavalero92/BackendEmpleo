@@ -12,12 +12,12 @@ const Navigation: React.FC = () => {
     const logoutHandler = () => {
         logout();
     }
-    
+
     return(
         <header className="header">
             <div className="header-container">
                 <div className="header-container__logo">
-                    <img src="https://unpaz.edu.ar/sites/default/files/unpaz_logo_2020.png" alt="logo" />
+                    <NavLink to="/"><img src="https://unpaz.edu.ar/sites/default/files/unpaz_logo_2020.png" alt="logo" /></NavLink>
                 </div>
                 <div className="header-container__nav">
                     <ul className="header-container__nav-items">
@@ -28,9 +28,11 @@ const Navigation: React.FC = () => {
                             <NavLink to="/login" className="nav-link" >Soy empresa</NavLink>
                         </li> */}
                         <li className="header-container__nav-items-item">
-                            <NavLink to="/new-job" className="nav-link" >Publicar empleo</NavLink>
+                            <NavLink to={userInfo?.user?.isRecruiter ? '/new-job' : '/login'} className="nav-link" >Publicar empleo</NavLink>
                         </li>
-
+                        <li className="header-container__nav-items-item">
+                            <NavLink to={userInfo ? '/new-cv' : '/login'} className="nav-link" >Cargar CV</NavLink>
+                        </li>
                         {!userInfo ? (
                             <>
                                 <li className="header-container__nav-items-item">
@@ -44,6 +46,9 @@ const Navigation: React.FC = () => {
                             </>
                         ) : (
                             <>
+                                <li className="header-container__nav-items-item">
+                                    <NavLink to="/my-cv" className="nav-link" >Mi CV</NavLink>
+                                </li>
                                 <li className="header-container__nav-items-item">
                                     <button className="header-container__nav-items-item-button" >
                                         <p className="nav-link" onClick={logoutHandler}>Cerrar sesión</p> 

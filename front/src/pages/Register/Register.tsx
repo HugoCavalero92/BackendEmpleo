@@ -11,14 +11,15 @@ const Register: React.FC = () => {
     const [surname, setSurname ] = useState('');
     const [email, setEmail ] = useState('');
     const [password, setPassword ] = useState('');
+    const [recruiter, setRecruiter ] = useState(false);
     const [redirect, setRedirect ] = useState(false);
     const { register } = useActions();
     const { userInfo, error, loading } = useTypedSelector((state) => state.userLogin);
     
     const submit = (e: SyntheticEvent) => {
         e.preventDefault();
-
-        register(name, surname, email, password);
+        console.log(recruiter);
+        register(name, surname, email, password, recruiter);
 
     }
     useEffect(() => {
@@ -57,6 +58,12 @@ const Register: React.FC = () => {
                 <input type="password" className="form-control" placeholder="Contraseña" 
                     onChange={e => setPassword(e.target.value)}
                 />
+            </div>
+            <div className="form-check">
+                <input className="form-check-input" type="checkbox" onChange={e => setRecruiter(e.target.checked)}/>
+                <label className="form-check-label">
+                    Soy Reclutador
+                </label>
             </div>
             <div className="form-container__submit mt-4">
                 <button className="form-container__submit-button">Registrarse</button>

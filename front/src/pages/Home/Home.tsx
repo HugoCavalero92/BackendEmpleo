@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         };   
     },[job]);
 
-    const renderedJobs = job?.ofertas?.map((job: JobI) => 
+    const renderedJobs = job?.map((job: JobI) => 
         <JobCard key={job._id} job={job}/>);
     
 
