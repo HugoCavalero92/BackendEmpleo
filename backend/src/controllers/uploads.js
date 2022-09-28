@@ -32,7 +32,7 @@ const fileUpload = (req, res=response) => {
 
     const validExtensions = ['png', 'jpg', 'jpeg', 'gif'];
 
-    if(!validExtensions.includes(fileExtension)){
+    if(!validExtensions.includes(fileExtension.toLowerCase())){
         return res.status(400).json({
             ok: false,
             msg: 'No se subio un archivo con una extensión valida'
@@ -75,7 +75,7 @@ const getImage = (req, res=response) => {
     const { type, img } = req.params;
 
     const pathImg = path.join(__dirname, `../../uploads/${type}/${img}`);
-
+    console.log(pathImg)
     if(fs.existsSync(pathImg)){
         res.sendFile(pathImg);
     } else{
